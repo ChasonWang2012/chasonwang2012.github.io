@@ -476,6 +476,32 @@ sup > a::before,
     font-size: 1.35rem;
   }
 }
+.navbar-title {
+  outline: none;
+  --c: #20b2aa;
+  text-shadow: 0 0 10px var(--c), 0 0 20px var(--c), 0 0 40px var(--c), 0 0 80px var(--c), 0 0 160px var(--c);
+  animation: animate 5s linear infinite;
+}
+@-moz-keyframes animate {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+@-webkit-keyframes animate {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+@-o-keyframes animate {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes animate {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
 .modal-dialog .modal-content {
   background-color: var(--board-bg-color);
   border: 0;

@@ -105,7 +105,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>ChasonWang&#39;s Blog</strong>
+      <strong class="navbar-title">ChasonWang&#39;s Blog</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -295,7 +295,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="笑话合集1"><a href="#笑话合集1" class="headerlink" title="笑话合集1"></a>笑话合集1</h1><p>你越催更我就越不更，好素材可以发到我的邮箱（<a href="mailto:&#x71;&#49;&#50;&#x33;&#48;&#95;&#56;&#64;&#x31;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">q1230_8@163.com</a>）。</p>
+                <h1 id="笑话合集1"><a href="#笑话合集1" class="headerlink" title="笑话合集1"></a>笑话合集1</h1><p>你越催更我就越不更，好素材可以发到我的邮箱（<a href="mailto:&#x71;&#x31;&#x32;&#x33;&#48;&#95;&#56;&#x40;&#49;&#54;&#x33;&#46;&#x63;&#111;&#109;">q1230_8@163.com</a>）。</p>
 <h3 id="一些事"><a href="#一些事" class="headerlink" title="一些事"></a>一些事</h3><p>1.初中的数学没有出现小明了， 我就知道那傻子考不上初中</p>
 <p>2.古九尾狐狸有九命 分别亡于语数外政史地理化生</p>
 <p>3.数学老师对我们说：这个年纪有喜欢的人很正常 但是最好藏在心底 不要太高调 如果你想起他就做一道数学题 等毕业时把做满数学题的本子放在他面前 告诉他你有多喜欢他 不信他不感动 这个主意真的很好 当我做到第二题的时候 我就不喜欢她了</p>
@@ -527,6 +527,38 @@
 
   <footer>
     <div class="footer-inner">
+  <div>
+  <span id="timeDate">正在载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script>
+  var now = new Date();
+  function createtime(){
+      var grt= new Date("08/17/2020 00:00:00");
+      now.setTime(now.getTime()+250);
+      days = (now - grt ) / 1000 / 60 / 60 / 24;
+      dnum = Math.floor(days);
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+      hnum = Math.floor(hours);
+      if(String(hnum).length ==1 ){
+          hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+                mnum = "0" + mnum;
+      }
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+                snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML = "🚀已持续航行&nbsp"+dnum+"&nbsp天";  
+      document.getElementById("times").innerHTML = hnum + "&nbsp时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+  }
+  setInterval("createtime()",250);
+  </script>
+</div>
+
   
     <div class="footer-content">
        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
