@@ -19,22 +19,22 @@
   <meta name="author" content="ChasonWang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="对这个世界，如果有太多的分解。跌倒了，就不敢继续写DP。为什么，我不能AKIOI。请你打开电视看看多少人为OI在努力勇敢的走下去。我们是不是该AC。写完题目，就算全UKE。还记得你说模拟是你的最爱，看到猪国杀怎么就逃走，写搜索，写出了TLE不要写，让抄题解带着你逃跑。曾经AK现在却不行了。回OI，回到OI的美好。不要这么容易就写暴力就像我说的写不对的题目换道题不就得了。为自己的OI生图上色。先把算">
+    <meta name="description" content="思路首先，这个商人要尽可能的让你输，就会尽可能平均的取出每一个味道的茶包，所以，就要求出每一个茶包都正好取出 $\min(a_i,b-1)$ 个，然后把这些求和后再加一，效率是 $O(nm)$ ，很明显，炸了。 未AC的Code12345678910111213141516171819202122#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;lo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="稻香OI版（原创）">
-<meta property="og:url" content="http://chasonwang2012.github.io/2025/08/10/%E7%A8%BB%E9%A6%99OI%E7%89%88%EF%BC%88%E5%8E%9F%E5%88%9B%EF%BC%89/index.html">
+<meta property="og:title" content="题解：AT_abc418_c [ABC418C] Flush">
+<meta property="og:url" content="http://chasonwang2012.github.io/2025/09/05/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc418-c-ABC418C-Flush/index.html">
 <meta property="og:site_name" content="ChasonWang&#39;s blogs">
-<meta property="og:description" content="对这个世界，如果有太多的分解。跌倒了，就不敢继续写DP。为什么，我不能AKIOI。请你打开电视看看多少人为OI在努力勇敢的走下去。我们是不是该AC。写完题目，就算全UKE。还记得你说模拟是你的最爱，看到猪国杀怎么就逃走，写搜索，写出了TLE不要写，让抄题解带着你逃跑。曾经AK现在却不行了。回OI，回到OI的美好。不要这么容易就写暴力就像我说的写不对的题目换道题不就得了。为自己的OI生图上色。先把算">
+<meta property="og:description" content="思路首先，这个商人要尽可能的让你输，就会尽可能平均的取出每一个味道的茶包，所以，就要求出每一个茶包都正好取出 $\min(a_i,b-1)$ 个，然后把这些求和后再加一，效率是 $O(nm)$ ，很明显，炸了。 未AC的Code12345678910111213141516171819202122#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;lo">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-10T12:45:34.000Z">
-<meta property="article:modified_time" content="2025-08-10T12:46:11.230Z">
+<meta property="article:published_time" content="2025-09-05T11:37:49.000Z">
+<meta property="article:modified_time" content="2025-09-05T11:40:14.207Z">
 <meta property="article:author" content="ChasonWang">
-<meta property="article:tag" content="OI改编歌词">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>稻香OI版（原创） - ChasonWang&#39;s blogs</title>
+  <title>题解：AT_abc418_c [ABC418C] Flush - ChasonWang&#39;s blogs</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +222,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="稻香OI版（原创）"></span>
+            <span id="subtitle" data-typed-text="题解：AT_abc418_c [ABC418C] Flush"></span>
           
         </div>
 
@@ -233,8 +233,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-10 20:45" pubdate>
-          2025年8月10日 晚上
+        <time datetime="2025-09-05 19:37" pubdate>
+          2025年9月5日 晚上
         </time>
       </span>
     
@@ -245,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          385 字
+          457 字
         
       </span>
     
@@ -293,12 +293,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">稻香OI版（原创）</h1>
+            <h1 id="seo-header">题解：AT_abc418_c [ABC418C] Flush</h1>
             
             
               <div class="markdown-body">
                 
-                <p>对这个世界，如果有太多的分解。<br>跌倒了，就不敢继续写DP。<br>为什么，我不能AKIOI。<br>请你打开电视看看<br>多少人为OI在努力勇敢的走下去。<br>我们是不是该AC。<br>写完题目，就算全UKE。<br>还记得你说模拟是你的最爱，<br>看到猪国杀怎么就逃走，<br>写搜索，写出了TLE<br>不要写，让抄题解带着你逃跑。<br>曾经AK现在却不行了。<br>回OI，回到OI的美好。<br>不要这么容易就写暴力<br>就像我说的<br>写不对的题目换道题不就得了。<br>为自己的OI生图上色。<br>先把算法画上爱的颜色。<br>A一题吧<br>IOI就不是目的<br>让自己NOIP这才叫做意义<br>童年的OI梦，又回到我的手里。<br>所谓的那快乐<br>在洛谷写题目二分不想写了<br>ATabc赛不会打了<br>CCF在偷笑<br>我靠着贪心和 暴力搜 欧拉筛 过了题<br>或许写字典树会更简单<br>初赛过不了别担心<br>写完题目，就算全UKE。<br>还记得你说模拟是你的最爱，<br>看到猪国杀怎么就逃走，<br>写搜索，写出了TLE<br>不要写，让抄题解带着你逃跑。<br>曾经AK现在却不行了。<br>回OI，回到OI的美好。<br>还记得你说模拟是你的最爱，<br>看到猪国杀怎么就逃走，<br>写搜索，写出了TLE<br>不要写，让抄题解带着你逃跑。<br>曾经AK现在却不行了。<br>回OI，回到OI的美好。</p>
+                <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>首先，这个商人要尽可能的让你输，就会尽可能平均的取出每一个味道的茶包，所以，就要求出每一个茶包都正好取出 $\min(a_i,b-1)$ 个，然后把这些求和后再加一，效率是 $O(nm)$ ，很明显，炸了。</p>
+<h1 id="未AC的Code"><a href="#未AC的Code" class="headerlink" title="未AC的Code"></a>未AC的Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> n,m,maxn,s[<span class="hljs-number">3000005</span>],a[<span class="hljs-number">3000005</span>];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;m;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>        cin&gt;&gt;a[i],maxn=<span class="hljs-built_in">max</span>(maxn,a[i]);<br>	<span class="hljs-keyword">while</span>(m--)&#123;<br>		<span class="hljs-type">long</span> <span class="hljs-type">long</span> x;<br>		cin&gt;&gt;x;<br>		<span class="hljs-keyword">if</span>(x&gt;maxn) &#123;<br>			<span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;-1&quot;</span>);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125;<br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            ans+=<span class="hljs-built_in">min</span>(x<span class="hljs-number">-1</span>,a[i]);<br>        &#125;<br>        cout&lt;&lt;ans<span class="hljs-number">+1</span>&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><p>其实这一看到求和，就可以用前缀和，然后使用 STL 自带的二分函数 <code>lower_bound</code> 求出第一个大于等于 $b$ 的数，设这个数为 $pos$ ，使用前 $pos$ 种口味的茶包总数也就是 $s_i$ ，与后面剩下的口味中每种口味至少取 $x-1$ 个茶包的总数相加，最后加一，确保至少再取一个茶包来能有 $b$ 个同口味的茶包。</p>
+<h1 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h1><p>接下来显出本蒟蒻的代码吧。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">long</span> <span class="hljs-type">long</span> n,m,maxn,s[<span class="hljs-number">3000005</span>],a[<span class="hljs-number">3000005</span>];<span class="hljs-comment">//不开____见祖宗。</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;m;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<span class="hljs-comment">//别问为什么下表要从零开始，布吉岛为什么从一开始过不了。</span><br>      cin&gt;&gt;a[i],maxn=<span class="hljs-built_in">max</span>(maxn,a[i]);<br>	<span class="hljs-built_in">sort</span>(a,a+n);<span class="hljs-comment">//排序，因为要使用二分查找。</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++) s[i<span class="hljs-number">+1</span>]=s[i]+a[i];<span class="hljs-comment">//求前缀和。</span><br>	<span class="hljs-keyword">while</span>(m--)&#123;<br>		<span class="hljs-type">long</span> <span class="hljs-type">long</span> x;<br>		cin&gt;&gt;x;<br>		<span class="hljs-keyword">if</span>(x&gt;maxn)&#123;<span class="hljs-comment">//判断是否可行。</span><br>			<span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;-1&quot;</span>);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125;<br>		<span class="hljs-type">int</span> pos=<span class="hljs-built_in">lower_bound</span>(a,a+n,x)-a;<span class="hljs-comment">//计算pos。</span><br>		cout&lt;&lt;s[pos]+(n-pos)*(x<span class="hljs-number">-1</span>)<span class="hljs-number">+1</span>&lt;&lt;endl;<br>	&#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><del>管理大大求过。</del></p>
 
                 
               </div>
@@ -307,11 +312,32 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/OI%E6%94%B9%E7%BC%96%E6%AD%8C%E8%AF%8D/" class="print-no-link">#OI改编歌词</a>
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
       
     </div>
   
@@ -323,8 +349,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>稻香OI版（原创）</div>
-      <div>http://chasonwang2012.github.io/2025/08/10/稻香OI版（原创）/</div>
+      <div>题解：AT_abc418_c [ABC418C] Flush</div>
+      <div>http://chasonwang2012.github.io/2025/09/05/题解：AT-abc418-c-ABC418C-Flush/</div>
     </div>
     <div class="license-meta">
       
@@ -336,7 +362,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月10日</div>
+          <div>2025年9月5日</div>
         </div>
       
       
@@ -368,9 +394,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/09/05/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc418-c-ABC418C-Flush/" title="题解：AT_abc418_c [ABC418C] Flush">
+                      <a href="/2025/09/05/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc419-c-ABC419C-King-s-Summit/" title="题解：AT_abc419_c [ABC419C] King&#39;s Summit">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：AT_abc418_c [ABC418C] Flush</span>
+                        <span class="hidden-mobile">题解：AT_abc419_c [ABC419C] King&#39;s Summit</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -378,8 +404,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/10/%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83OI%E7%89%88%EF%BC%88%E5%8E%9F%E5%88%9B%EF%BC%89/" title="告白气球OI版（原创）">
-                        <span class="hidden-mobile">告白气球OI版（原创）</span>
+                      <a href="/2025/08/10/%E7%A8%BB%E9%A6%99OI%E7%89%88%EF%BC%88%E5%8E%9F%E5%88%9B%EF%BC%89/" title="稻香OI版（原创）">
+                        <span class="hidden-mobile">稻香OI版（原创）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -480,6 +506,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -704,6 +736,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

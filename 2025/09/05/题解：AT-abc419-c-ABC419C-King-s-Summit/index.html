@@ -19,22 +19,22 @@
   <meta name="author" content="ChasonWang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="对这个世界，如果有太多的分解。跌倒了，就不敢继续写DP。为什么，我不能AKIOI。请你打开电视看看多少人为OI在努力勇敢的走下去。我们是不是该AC。写完题目，就算全UKE。还记得你说模拟是你的最爱，看到猪国杀怎么就逃走，写搜索，写出了TLE不要写，让抄题解带着你逃跑。曾经AK现在却不行了。回OI，回到OI的美好。不要这么容易就写暴力就像我说的写不对的题目换道题不就得了。为自己的OI生图上色。先把算">
+    <meta name="description" content="题意在一张二维地图上，有 $n$ 个人，每秒可以向周围八个格子移动一格，问至少多少秒可以使全图的人在同一个点。 思路首先，这一道题我们需要知道一个概念：切比雪夫距离。 切比雪夫距离官方定义在数学中，切比雪夫距离（Chebyshev distance）或是L∞度量，是向量空间中的一种度量，二个点之间的距离定义是其各坐标数值差绝对值的最大值。以数学的观点来看，切比雪夫距离是由一致范数（uniform">
 <meta property="og:type" content="article">
-<meta property="og:title" content="稻香OI版（原创）">
-<meta property="og:url" content="http://chasonwang2012.github.io/2025/08/10/%E7%A8%BB%E9%A6%99OI%E7%89%88%EF%BC%88%E5%8E%9F%E5%88%9B%EF%BC%89/index.html">
+<meta property="og:title" content="题解：AT_abc419_c [ABC419C] King&#39;s Summit">
+<meta property="og:url" content="http://chasonwang2012.github.io/2025/09/05/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc419-c-ABC419C-King-s-Summit/index.html">
 <meta property="og:site_name" content="ChasonWang&#39;s blogs">
-<meta property="og:description" content="对这个世界，如果有太多的分解。跌倒了，就不敢继续写DP。为什么，我不能AKIOI。请你打开电视看看多少人为OI在努力勇敢的走下去。我们是不是该AC。写完题目，就算全UKE。还记得你说模拟是你的最爱，看到猪国杀怎么就逃走，写搜索，写出了TLE不要写，让抄题解带着你逃跑。曾经AK现在却不行了。回OI，回到OI的美好。不要这么容易就写暴力就像我说的写不对的题目换道题不就得了。为自己的OI生图上色。先把算">
+<meta property="og:description" content="题意在一张二维地图上，有 $n$ 个人，每秒可以向周围八个格子移动一格，问至少多少秒可以使全图的人在同一个点。 思路首先，这一道题我们需要知道一个概念：切比雪夫距离。 切比雪夫距离官方定义在数学中，切比雪夫距离（Chebyshev distance）或是L∞度量，是向量空间中的一种度量，二个点之间的距离定义是其各坐标数值差绝对值的最大值。以数学的观点来看，切比雪夫距离是由一致范数（uniform">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-10T12:45:34.000Z">
-<meta property="article:modified_time" content="2025-08-10T12:46:11.230Z">
+<meta property="article:published_time" content="2025-09-05T11:38:10.000Z">
+<meta property="article:modified_time" content="2025-09-05T11:40:42.444Z">
 <meta property="article:author" content="ChasonWang">
-<meta property="article:tag" content="OI改编歌词">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>稻香OI版（原创） - ChasonWang&#39;s blogs</title>
+  <title>题解：AT_abc419_c [ABC419C] King&#39;s Summit - ChasonWang&#39;s blogs</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +222,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="稻香OI版（原创）"></span>
+            <span id="subtitle" data-typed-text="题解：AT_abc419_c [ABC419C] King&#39;s Summit"></span>
           
         </div>
 
@@ -233,8 +233,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-10 20:45" pubdate>
-          2025年8月10日 晚上
+        <time datetime="2025-09-05 19:38" pubdate>
+          2025年9月5日 晚上
         </time>
       </span>
     
@@ -245,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          385 字
+          429 字
         
       </span>
     
@@ -293,12 +293,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">稻香OI版（原创）</h1>
+            <h1 id="seo-header">题解：AT_abc419_c [ABC419C] King&#39;s Summit</h1>
             
             
               <div class="markdown-body">
                 
-                <p>对这个世界，如果有太多的分解。<br>跌倒了，就不敢继续写DP。<br>为什么，我不能AKIOI。<br>请你打开电视看看<br>多少人为OI在努力勇敢的走下去。<br>我们是不是该AC。<br>写完题目，就算全UKE。<br>还记得你说模拟是你的最爱，<br>看到猪国杀怎么就逃走，<br>写搜索，写出了TLE<br>不要写，让抄题解带着你逃跑。<br>曾经AK现在却不行了。<br>回OI，回到OI的美好。<br>不要这么容易就写暴力<br>就像我说的<br>写不对的题目换道题不就得了。<br>为自己的OI生图上色。<br>先把算法画上爱的颜色。<br>A一题吧<br>IOI就不是目的<br>让自己NOIP这才叫做意义<br>童年的OI梦，又回到我的手里。<br>所谓的那快乐<br>在洛谷写题目二分不想写了<br>ATabc赛不会打了<br>CCF在偷笑<br>我靠着贪心和 暴力搜 欧拉筛 过了题<br>或许写字典树会更简单<br>初赛过不了别担心<br>写完题目，就算全UKE。<br>还记得你说模拟是你的最爱，<br>看到猪国杀怎么就逃走，<br>写搜索，写出了TLE<br>不要写，让抄题解带着你逃跑。<br>曾经AK现在却不行了。<br>回OI，回到OI的美好。<br>还记得你说模拟是你的最爱，<br>看到猪国杀怎么就逃走，<br>写搜索，写出了TLE<br>不要写，让抄题解带着你逃跑。<br>曾经AK现在却不行了。<br>回OI，回到OI的美好。</p>
+                <h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>在一张二维地图上，有 $n$ 个人，每秒可以向周围八个格子移动一格，问至少多少秒可以使全图的人在同一个点。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>首先，这一道题我们需要知道一个概念：切比雪夫距离。</p>
+<h2 id="切比雪夫距离"><a href="#切比雪夫距离" class="headerlink" title="切比雪夫距离"></a>切比雪夫距离</h2><h3 id="官方定义"><a href="#官方定义" class="headerlink" title="官方定义"></a>官方定义</h3><p>在数学中，切比雪夫距离（Chebyshev distance）或是L∞度量，是向量空间中的一种度量，二个点之间的距离定义是其各坐标数值差绝对值的最大值。以数学的观点来看，切比雪夫距离是由一致范数（uniform norm）（或称为上确界范数）所衍生的度量，也是超凸度量（injective metric space）的一种。<br><del>很好，是个人都看不懂。</del></p>
+<h3 id="我的解释"><a href="#我的解释" class="headerlink" title="我的解释"></a>我的解释</h3><p>在一张八连通的二维地图上，从点 $(x1,y1)$ 到点 $(x2,y2)$ ， 他们之间的距离为 $\min(\operatorname{abs}(x1-x2),\operatorname{abs}(y1-y2))$ 。很好，<del>就是这么简单。</del>  </p>
+<hr>
+<p>然后我们经过计算可以知道 $x$ 或 $y$ 坐标相差最大的两个人移动到同一个点，只需要 $\dfrac{\operatorname{abs}(x_1-x_2+1)}{2}$ 或 $\dfrac{\operatorname{abs}(y_1-y_2)+1}{2}$ 秒。其中我们找的是最小值，选择最不利情况，所以最后的答案是 $\max(\frac{\operatorname{abs}(x_1-x_2+1)}{2},\frac{\operatorname{abs}(y_1-y_2+1)}{2})$ 。  </p>
+<h1 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h1><p>以下是本蒟蒻的代码。</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs gml">#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int n,maxx=<span class="hljs-number">-2e9</span>,minx=<span class="hljs-number">2e9</span>,maxy=<span class="hljs-number">-2e9</span>,miny=<span class="hljs-number">2e9</span>;<br>int main()&#123;<br>    cin&gt;&gt;n;<br>    <span class="hljs-keyword">while</span>(n--)&#123;<br>        int <span class="hljs-variable language_">x</span>,<span class="hljs-variable language_">y</span>;<br>        cin&gt;&gt;<span class="hljs-variable language_">x</span>&gt;&gt;<span class="hljs-variable language_">y</span>;<br>        maxx=<span class="hljs-built_in">max</span>(maxx,<span class="hljs-variable language_">x</span>);<span class="hljs-comment">//求最小值和最大值。</span><br>        minx=<span class="hljs-built_in">min</span>(minx,<span class="hljs-variable language_">x</span>);<br>        maxy=<span class="hljs-built_in">max</span>(maxy,<span class="hljs-variable language_">y</span>);<br>        miny=<span class="hljs-built_in">min</span>(miny,<span class="hljs-variable language_">y</span>);<br>    &#125;<br>    cout&lt;&lt;<span class="hljs-built_in">max</span>(<span class="hljs-built_in">abs</span>(maxx-minx+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>,<span class="hljs-built_in">abs</span>(maxy-miny+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>);<span class="hljs-comment">//使用上面的公式。</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc419/submissions/68567626">AC记录。</a><br><del>管理大大求过</del></p>
 
                 
               </div>
@@ -307,11 +315,32 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/OI%E6%94%B9%E7%BC%96%E6%AD%8C%E8%AF%8D/" class="print-no-link">#OI改编歌词</a>
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
       
     </div>
   
@@ -323,8 +352,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>稻香OI版（原创）</div>
-      <div>http://chasonwang2012.github.io/2025/08/10/稻香OI版（原创）/</div>
+      <div>题解：AT_abc419_c [ABC419C] King&#39;s Summit</div>
+      <div>http://chasonwang2012.github.io/2025/09/05/题解：AT-abc419-c-ABC419C-King-s-Summit/</div>
     </div>
     <div class="license-meta">
       
@@ -336,7 +365,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月10日</div>
+          <div>2025年9月5日</div>
         </div>
       
       
@@ -368,9 +397,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/09/05/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc418-c-ABC418C-Flush/" title="题解：AT_abc418_c [ABC418C] Flush">
+                      <a href="/2025/09/05/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc419-d-ABC419D-Substr-Swap/" title="题解：AT_abc419_d [ABC419D] Substr Swap">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">题解：AT_abc418_c [ABC418C] Flush</span>
+                        <span class="hidden-mobile">题解：AT_abc419_d [ABC419D] Substr Swap</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -378,8 +407,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/10/%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83OI%E7%89%88%EF%BC%88%E5%8E%9F%E5%88%9B%EF%BC%89/" title="告白气球OI版（原创）">
-                        <span class="hidden-mobile">告白气球OI版（原创）</span>
+                      <a href="/2025/09/05/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc418-c-ABC418C-Flush/" title="题解：AT_abc418_c [ABC418C] Flush">
+                        <span class="hidden-mobile">题解：AT_abc418_c [ABC418C] Flush</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -480,6 +509,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -704,6 +739,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
