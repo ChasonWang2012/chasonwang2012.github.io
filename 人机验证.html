@@ -1,526 +1,233 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="ChasonWang">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="人机验证              body {             font-family: Arial, sans-serif;             display: flex;             justify-content: center;             align-items: center;             heig">
-<meta property="og:type" content="website">
-<meta property="og:title" content="page.title">
-<meta property="og:url" content="http://chasonwang2012.github.io/%E4%BA%BA%E6%9C%BA%E9%AA%8C%E8%AF%81.html">
-<meta property="og:site_name" content="ChasonWang&#39;s blogs">
-<meta property="og:description" content="人机验证              body {             font-family: Arial, sans-serif;             display: flex;             justify-content: center;             align-items: center;             heig">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-03T09:26:28.111Z">
-<meta property="article:modified_time" content="2025-10-03T09:20:18.490Z">
-<meta property="article:author" content="ChasonWang">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>page.title - ChasonWang&#39;s blogs</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-  
-<link rel="stylesheet" href="/css/macpanel.css">
-<link rel="stylesheet" href="/css/selection.css">
-<link rel="stylesheet" href="/css/scrollAnimation.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"chasonwang2012.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+  <title>人机验证</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: sans-serif;
     }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
 
+    #box {
+      position: absolute;
+      width: 400px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s ease;
+    }
 
-  
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+    #targetBtn {
+      width: 24px;
+      height: 24px;
+      appearance: none;
+      border: 2px solid #fff;
+      border-radius: 6px;
+      background: transparent;
+      cursor: pointer;
+      margin-right: 15px;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+    #targetBtn:checked {
+      background: #fff;
+    }
 
+    .labelText {
+      color: white;
+      font-size: 16px;
+      user-select: none;
+    }
 
-<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
-  
+    #surrenderBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      font-size: 28px;
+      line-height: 50px;
+      text-align: center;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 10;
+      transition: transform 0.2s ease;
+    }
 
-  <header>
-    
+    #surrenderBtn:hover {
+      transform: scale(1.1);
+    }
 
-<div class="header-inner" style="height: 60vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong class="navbar-title">ChasonWang&#39;s Blog</strong>
-    </a>
+    #surrenderText {
+      position: fixed;
+      bottom: 35px;
+      right: 90px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.5s, transform 0.5s;
+      pointer-events: none;
+    }
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
+    .ripple {
+      position: fixed;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 80%);
+      transform: scale(0);
+      animation: rippleExpand 2s linear infinite;
+      pointer-events: none;
+      z-index: 5;
+    }
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-link-fill"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/%E4%BA%BA%E6%9C%BA%E9%AA%8C%E8%AF%81.html" target="_self">
-                <i class="iconfont icon-人机验证-fill"></i>
-                <span>人机验证</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="page.title"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<article class="page-content">
-  
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人机验证</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
-            overflow: hidden;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        #captcha-btn {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-        }
-        #captcha-btn:hover {
-            background-color: #45a049;
-        }
-        #surrender-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #f44336;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: none;
-        }
-        #surrender-btn:hover {
-            background-color: #d32f2f;
-        }
-    </style>
+    @keyframes rippleExpand {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(50);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>请点击验证按钮证明你不是机器人</h1>
-        <a href="http://chasonwang2012.github.io"><button id="captcha-btn">点击验证</button></a>
-        <button id="surrender-btn">投降</button>
-    </div>
 
-    <script>
-        const captchaBtn = document.getElementById('captcha-btn');
-        const surrenderBtn = document.getElementById('surrender-btn');
-        let isRunning = true;
-        let timer;
-
-
-        captchaBtn.addEventListener('mouseover', () => {
-            if (isRunning) {
-                const x = Math.random() * (window.innerWidth - captchaBtn.offsetWidth);
-                const y = Math.random() * (window.innerHeight - captchaBtn.offsetHeight);
-                captchaBtn.style.position = 'absolute';
-                captchaBtn.style.left = x + 'px';
-                captchaBtn.style.top = y + 'px';
-            }
-        });
-        setTimeout(() => {
-            surrenderBtn.style.display = 'block';
-        }, 10000);
-
-
-        surrenderBtn.addEventListener('click', () => {
-            isRunning = false;
-            captchaBtn.style.position = 'static';
-            captchaBtn.style.left = 'auto';
-            captchaBtn.style.top = 'auto';
-            surrenderBtn.textContent = '已投降';
-            surrenderBtn.disabled = true;
-        });
-
-        captchaBtn.addEventListener('click', () => {
-            if (!isRunning) {
-                alert('验证成功！你通过了测试！');
-            }
-        });
-    </script>
-<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
-</html>
-
-
-  
-
-</article>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
+<div id="box">
+  <input type="checkbox" id="targetBtn">
+  <div class="labelText">我是人类</div>
 </div>
 
-    
+<button id="surrenderBtn">🚩</button>
+<div id="surrenderText">要投降吗？投降了我就乖乖等你来按</div>
 
-    
-  </main>
+<script>
+  // 禁用右键菜单
+  document.addEventListener('contextmenu', e => e.preventDefault());
 
-  <footer>
-    <div class="footer-inner">
-  <div>
-  <span id="timeDate">正在载入天数...</span>
-  <span id="times">载入时分秒...</span>
-  <script>
-  var now = new Date();
-  function createtime(){
-      var grt= new Date("08/17/2020 00:00:00");
-      now.setTime(now.getTime()+250);
-      days = (now - grt ) / 1000 / 60 / 60 / 24;
-      dnum = Math.floor(days);
-      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
-      hnum = Math.floor(hours);
-      if(String(hnum).length ==1 ){
-          hnum = "0" + hnum;
-      }
-      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-      mnum = Math.floor(minutes);
-      if(String(mnum).length ==1 ){
-                mnum = "0" + mnum;
-      }
-      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-      snum = Math.round(seconds);
-      if(String(snum).length ==1 ){
-                snum = "0" + snum;
-      }
-      document.getElementById("timeDate").innerHTML = "🚀已持续航行&nbsp"+dnum+"&nbsp天";  
-      document.getElementById("times").innerHTML = hnum + "&nbsp时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+  const box = document.getElementById('box');
+  const btn = document.getElementById('targetBtn');
+  const surrenderBtn = document.getElementById('surrenderBtn');
+  const surrenderText = document.getElementById('surrenderText');
+  const jumpURL = "./"; // ← 修改为你想跳转的链接
+
+  let surrender = false;
+  let x = window.innerWidth / 2 - box.offsetWidth / 2;
+  let y = window.innerHeight / 2 - box.offsetHeight / 2;
+  box.style.left = x + 'px';
+  box.style.top = y + 'px';
+
+  let targetX = x;
+  let targetY = y;
+
+  function clamp(val, min, max) {
+    return Math.max(min, Math.min(max, val));
   }
-  setInterval("createtime()",250);
-  </script>
-</div>
 
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-</div>
+  function dist(x1, y1, x2, y2) {
+    return Math.sqrt((x1 - x2)**2 + (y1 - y2)**2);
+  }
 
-  </footer>
+  document.addEventListener('mousemove', (e) => {
+    if (surrender) return;
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const btnRect = btn.getBoundingClientRect();
+    const btnX = btnRect.left + btnRect.width / 2;
+    const btnY = btnRect.top + btnRect.height / 2;
 
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+    const d = dist(mouseX, mouseY, btnX, btnY);
 
+    if (d < 100) {
+      const dx = btnX - mouseX;
+      const dy = btnY - mouseY;
+      const escapeFactor = 10;
+      targetX += dx * escapeFactor * 0.05;
+      targetY += dy * escapeFactor * 0.05;
+    }
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+    // 如果被逼墙角，弹开
+    const margin = 50;
+    if (x < margin) targetX += 30;
+    if (x > window.innerWidth - box.offsetWidth - margin) targetX -= 30;
+    if (y < margin) targetY += 30;
+    if (y > window.innerHeight - box.offsetHeight - margin) targetY -= 30;
 
+    targetX = clamp(targetX, 0, window.innerWidth - box.offsetWidth);
+    targetY = clamp(targetY, 0, window.innerHeight - box.offsetHeight);
+  });
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
+  function animateBox() {
+    if (!surrender) {
+      x += (targetX - x) * 0.15;
+      y += (targetY - y) * 0.15;
+      box.style.left = x + 'px';
+      box.style.top = y + 'px';
+    }
+    requestAnimationFrame(animateBox);
+  }
 
+  animateBox();
 
+  // 投降逻辑
+  setTimeout(() => {
+    surrenderBtn.style.display = 'block';
+    setTimeout(() => {
+      surrenderText.style.opacity = 1;
+    }, 500);
+    setTimeout(() => {
+      createRippleEffect();
+    }, 3000);
+  }, 5000);
 
+  surrenderBtn.addEventListener('click', () => {
+    surrender = true;
+    surrenderText.style.display = 'none';
+  });
 
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
+  function createRippleEffect() {
+    const rect = surrenderBtn.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
 
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    ripple.style.left = (cx - 10) + 'px';
+    ripple.style.top = (cy - 10) + 'px';
+    ripple.style.width = '20px';
+    ripple.style.height = '20px';
+    document.body.appendChild(ripple);
+  }
 
+  btn.addEventListener('change', () => {
+    if (btn.checked) {
+      window.location.href = jumpURL;
+    }
+  });
 
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-  
-<script src="/js/scrollAnimation.js"></script>
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-</html>
-<!--动态线条背景-->
-<script type="text/javascript"
-color="220,220,220" opacity='0.7' zIndex="-1" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  window.addEventListener('resize', () => {
+    targetX = clamp(targetX, 0, window.innerWidth - box.offsetWidth);
+    targetY = clamp(targetY, 0, window.innerHeight - box.offsetHeight);
+  });
 </script>
-<!--单击显示文字-->
-<script type="text/javascript" src="/js/click_show_text.js"></script>
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="/js/fireworks.js"></script>
+
+</body>
+</html>
