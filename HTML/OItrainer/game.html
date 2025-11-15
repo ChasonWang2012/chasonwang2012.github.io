@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChasonWang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="OI 教练模拟器     (function(){     function injectCF(){       var s &#x3D; document.createElement(&#39;script&#39;);       s.defer &#x3D; true;       s.src &#x3D; &#39;https:&#x2F;&#x2F;static.cloudflareinsights.com&#x2F;beacon.min.js&#39;;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="page.title">
+<meta property="og:url" content="http://chasonwang2012.github.io/HTML/OItrainer/game.html">
+<meta property="og:site_name" content="ChasonWang&#39;s blogs">
+<meta property="og:description" content="OI 教练模拟器     (function(){     function injectCF(){       var s &#x3D; document.createElement(&#39;script&#39;);       s.defer &#x3D; true;       s.src &#x3D; &#39;https:&#x2F;&#x2F;static.cloudflareinsights.com&#x2F;beacon.min.js&#39;;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-14T13:52:37.812Z">
+<meta property="article:modified_time" content="2025-11-14T13:52:37.812Z">
+<meta property="article:author" content="ChasonWang">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>page.title - ChasonWang&#39;s blogs</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/macpanel.css">
+<link rel="stylesheet" href="/css/selection.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chasonwang2012.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title">ChasonWang&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="inconfont icon-steam-fill"></i>
+                <span>好玩的东西(游戏)</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/%E4%BA%BA%E6%9C%BA%E9%AA%8C%E8%AF%81.html" target="_self">
+                    <i class="iconfont icon-人机验证-fill"></i>
+                    <span>人机验证</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/404game.html" target="_self">
+                    
+                    <span>404game</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/2048.html" target="_self">
+                    
+                    <span>2048</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98.html" target="_self">
+                    
+                    <span>坦克大战</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/OItrainer/index.html" target="_self">
+                    
+                    <span>OI 教练模拟器 转载</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="page.title"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>OI 教练模拟器</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+  (function(){
+    function injectCF(){
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', '{"token": "cd3db41765ea4c17be0930b3f94e3c3a"}');
+      document.head.appendChild(s);
+    }
+    function shouldLoad(){
+      try{
+        var start = (performance.timing && performance.timing.navigationStart) || 0;
+        var elapsed = performance.now ? performance.now() : (Date.now() - start);
+        return elapsed <= 2000;
+      }catch(e){ return false; }
+    }
+    document.addEventListener('DOMContentLoaded', function(){ if(shouldLoad()) injectCF(); });
+  })();
+</script>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>OI 教练模拟器</h1>
+    </div>
+    <div class="topline">
+      <div id="header-week" class="small">第 1 周</div>
+      <div id="header-province" class="small">省份: -</div>
+      <div id="header-budget" class="small">经费: ¥0</div>
+      <div id="header-reputation" class="small">声誉: 0</div>
+  <!-- moved: weather and next competition summary (was in 周信息) -->
+      <div id="header-weather" class="small">天气: <span id="header-weather-text"></span> / 温度: <span id="header-temp-header">0.0°C</span></div>
+  <div id="header-next-competition" class="small muted">下场比赛: <span id="header-next-comp-small"></span></div>
+    </div>
+  </header>
+
+  <!-- 主面板：左 - 学生 / 右 - 操作 -->
+  <div class="row">
+    <div class="col panel" style="flex: 1 1 600px;">
+      <div class="flex-between">
+        <h3 style="margin:0">学生与状态</h3>
+        <div class="small">舒适度: <span id="comfort-val">50</span></div>
+      </div>
+      <div id="student-list" style="margin-top:10px;"></div>
+
+      <!-- 设施升级界面已隐藏 -->
+      <div style="margin-top:12px; display:none;">
+        <h4 style="margin:0">设施</h4>
+        <div class="facility-grid" style="margin-top:8px">
+          <div class="facility">
+            <div class="fac-label">计算机</div>
+            <div id="fac-computer" class="stat">1</div>
+            <div class="small muted">提升综合训练效率</div>
+            <div class="fac-action"><button class="btn upgrade" data-fac="computer" id="upgrade-computer">升级</button></div>
+          </div>
+
+          <div class="facility">
+            <div class="fac-label">资料库</div>
+            <div id="fac-library" class="stat">1</div>
+            <div class="small muted">提升知识训练效率</div>
+            <div class="fac-action"><button class="btn upgrade" data-fac="library" id="upgrade-library">升级</button></div>
+          </div>
+
+          <div class="facility">
+            <div class="fac-label">空调</div>
+            <div id="fac-ac" class="stat">1</div>
+            <div class="small muted">提升舒适度，缓解极端天气影响</div>
+            <div class="fac-action"><button class="btn upgrade" data-fac="ac" id="upgrade-ac">升级</button></div>
+          </div>
+
+          <div class="facility">
+            <div class="fac-label">宿舍</div>
+            <div id="fac-dorm" class="stat">1</div>
+            <div class="small muted">提升舒适度</div>
+            <div class="fac-action"><button class="btn upgrade" data-fac="dorm" id="upgrade-dorm">升级</button></div>
+          </div>
+
+          <div class="facility">
+            <div class="fac-label">食堂</div>
+            <div id="fac-canteen" class="stat">1</div>
+            <div class="small muted">减少训练压力</div>
+            <div class="fac-action"><button class="btn upgrade" data-fac="canteen" id="upgrade-canteen">升级</button></div>
+          </div>
+
+          <div class="facility">
+            <div class="fac-label">维护费/周</div>
+            <div id="fac-maint" class="stat">0</div>
+            <div class="small muted">所有设施每周维护费用</div>
+            <div class="fac-action"><button class="btn upgrade ghost" data-fac="maint" id="upgrade-maint">固定</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 移动到这里：周信息、下场比赛、训话、日志 -->
+      <div style="margin-top:16px; display:flex; gap:12px; align-items:flex-start">
+        <div style="flex:1">
+          <h4 style="margin:0 0 8px 0">周信息</h4>
+          <div class="small" style="line-height:1.6">
+            <div>第 <span id="info-week">1</span> 周 / 共 26 周</div>
+            <div>天气: <span id="info-weather">晴</span> / 温度: <span id="info-temp">20.0°C</span></div>
+            <div>预测 4 周 开支: ¥<span id="info-future-expense">0</span></div>
+            <div id="info-next-competition" class="small muted"></div>
+          </div>
+        </div>
+        
+        <div id="facilities-panel" style="flex:1">
+          <h4 style="margin:0 0 8px 0">设施状态</h4>
+          <div class="small" style="line-height:1.8">
+            <div>计算机 Lv.<span id="fac-computer-display">1</span> | 资料库 Lv.<span id="fac-library-display">1</span></div>
+            <div>空调 Lv.<span id="fac-ac-display">1</span> | 宿舍 Lv.<span id="fac-dorm-display">1</span></div>
+            <div>食堂 Lv.<span id="fac-canteen-display">1</span> | 维护费 ¥<span id="fac-maint-display">0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:12px; align-items:flex-start">
+        <div style="flex:1">
+          <h4 style="margin:0 0 8px 0">下场比赛</h4>
+          <div id="next-competition-panel" class="next-panel normal" style="margin:0">
+            <div id="next-comp" style="margin-bottom:8px">无</div>
+            <div id="daily-quote" class="small muted">一句话加载中...</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <h4 style="margin:0 0 8px 0">训话</h4>
+        <input type="text" id="coach-speech-input" placeholder="输入训话内容..." style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:14px;box-sizing:border-box" />
+      </div>
+
+      <div style="margin-top:16px">
+        <h4 style="margin:0 0 8px 0">日志</h4>
+        <div id="log" style="height:80px;overflow:auto;border:1px solid #eee;padding:8px;border-radius:6px;background:#fff;font-size:13px"></div>
+      </div>
+    </div>
+
+  <div class="col panel side-panel" style="flex: 0 0 360px;">
+  <h3 style="margin-top:0">本周行动（每个行动持续1周）</h3>
+      <div class="action-cards">
+        <div class="action-card" id="action-train" role="button" tabindex="0">
+          <div class="card-title">训练</div>
+          <div class="card-desc">安排学生进行专项训练，提高实力</div>
+        </div>
+        <div class="action-card" id="action-entertain" role="button" tabindex="0">
+          <div class="card-title">娱乐</div>
+          <div class="card-desc">放松娱乐，缓解压力</div>
+        </div>
+        <div class="action-card" id="action-mock" role="button" tabindex="0">
+          <div class="card-title">模拟赛</div>
+          <div class="card-desc">进行内部模拟比赛，检验训练成果，训练能力</div>
+        </div>
+        <div class="action-card" id="action-outing" role="button" tabindex="0">
+          <div class="card-title">集训</div>
+          <div class="card-desc">参加合适的外出集训，集中提升训练效率，</div>
+        </div>
+        <div class="action-card" id="action-resign" role="button" tabindex="0">
+          <div class="card-title">辞职</div>
+          <div class="card-desc">立即结束本赛季并进行结算</div>
+        </div>
+
+        <!-- 动态突发事件容器：JS 会在此处渲染任意数量的事件卡，支持iOS风格的滚动折叠 -->
+        <div id="event-cards-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="footer-panel" style="display: none;">
+    <div class="row">
+      <div class="col small">
+        <strong>结算/季节设定</strong>
+  <div>赛季总周数: 26</div>
+      </div>
+      <div class="col small">
+        <strong>比赛日程</strong>
+        <div class="small muted" style="margin-top:4px">比赛顺序（每季两轮）：CSP-S1 → CSP-S2 → NOIP → 省选 → NOI</div>
+        <div id="comp-schedule" class="small muted" style="margin-top:6px"></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- 模态区域 -->
+<div id="modal-root"></div>
+
+<script src="tutorial.js"></script>
+<script src="events.js"></script>
+<script src="lib/chinese-convert.js"></script>
+<script src="lib/constants.js"></script>
+<script src="lib/utils.js"></script>
+<script src="lib/models.js"></script>
+<script src="lib/talent.js"></script>
+<script src="lib/task.js"></script>
+<script src="lib/competitions.js"></script>
+<script src="lib/contest-ui.js"></script>
+<script src="lib/contest-integration.js"></script>
+<script src="lib/national-team.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<script src="game.js"></script>
+<script src="render.js"></script>
+<script src="debug.js"></script>
+<script>
+(function() {
+  const input = document.getElementById('coach-speech-input');
+  if (!input) return;
+
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+      event.preventDefault();
+      const speechText = (input.value || '').trim();
+      if (!speechText) return;
+
+      // 触发训话事件
+      const hash = CryptoJS.SHA256(speechText).toString(CryptoJS.enc.Hex);
+      document.dispatchEvent(new CustomEvent('coach-speech', {
+        detail: {
+          text: speechText,
+          hash: hash
+        }
+      }));
+      
+      input.value = '';
+    }
+  });
+})();
+</script>
+<script>
+  // If game.html is opened directly and there's no save in localStorage and
+  // no new-game params, redirect to start page so user chooses new game.
+  (function(){
+    try{
+      const qs = new URLSearchParams(window.location.search);
+      if(qs && qs.get('new')==='1') return; // creating a new game via start page
+      const raw = localStorage.getItem('oi_coach_save');
+      if(!raw){ window.location.href = 'start.html'; }
+    }catch(e){ /* ignore */ }
+  })();
+  
+  // 检查是否需要使用繁体中文
+  (function(){
+    try{
+      if(window.ChineseConverter && window.ChineseConverter.shouldUseTraditionalChinese()){
+        // 等待DOM完全加载后再转换
+        if(document.readyState === 'loading'){
+          document.addEventListener('DOMContentLoaded', function(){
+            setTimeout(function(){
+              window.ChineseConverter.convertPageToTraditional();
+            }, 200);
+          });
+        } else {
+          setTimeout(function(){
+            window.ChineseConverter.convertPageToTraditional();
+          }, 200);
+        }
+      }
+    }catch(e){ 
+      console.error('繁体中文转换失败:', e); 
+    }
+  })();
+</script>
+  <footer style="text-align:center;padding:12px 8px;color:#666;font-size:13px;border-top:1px solid #eee;margin-top:18px">
+    作者 @Dreamers-seve · 洛谷: <a href="https://www.luogu.com.cn/user/668972" target="_blank" rel="noopener">https://www.luogu.com.cn/user/668972</a> · GitHub: <a href="https://github.com/seve42/OItrainer" target="_blank" rel="noopener">https://github.com/seve42/OItrainer</a>
+  </footer>
+  <!-- winter plan link (shown until 2026-03-01) -->
+    <!-- winter plan injection: center link inside footer (or fixed bottom if no footer) -->
+    <script>
+      (function(){
+        try{
+          var cutoff = new Date('2026-03-01T00:00:00Z');
+          var now = new Date();
+          if(now >= cutoff) return;
+          var footer = document.querySelector('footer');
+          var linkHtml = '<a href="https://www.luogu.me/article/n4gmkam0" target="_blank" rel="noopener" style="color:#1976d2;text-decoration:none;font-weight:600;padding:6px 10px;border-radius:6px">冬日绘板计划</a>';
+          var container;
+          if(footer){
+            container = footer.querySelector('#winter-plan');
+            if(!container){
+              container = document.createElement('div');
+              container.id = 'winter-plan';
+              container.style.marginTop = '8px';
+              container.style.fontSize = '13px';
+              container.style.color = '#1976d2';
+              container.style.textAlign = 'center';
+              footer.appendChild(container);
+            }
+          } else {
+            container = document.getElementById('winter-plan');
+            if(!container){
+              container = document.createElement('div');
+              container.id = 'winter-plan';
+              container.style.position = 'fixed';
+              container.style.left = '0';
+              container.style.right = '0';
+              container.style.bottom = '8px';
+              container.style.textAlign = 'center';
+              container.style.fontSize = '13px';
+              container.style.zIndex = '9999';
+              document.body.appendChild(container);
+            }
+          }
+          container.innerHTML = linkHtml;
+        }catch(e){}
+      })();
+    </script>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  <div>
+  <span id="timeDate">正在载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script>
+  var now = new Date();
+  function createtime(){
+      var grt= new Date("08/17/2020 00:00:00");
+      now.setTime(now.getTime()+250);
+      days = (now - grt ) / 1000 / 60 / 60 / 24;
+      dnum = Math.floor(days);
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+      hnum = Math.floor(hours);
+      if(String(hnum).length ==1 ){
+          hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+                mnum = "0" + mnum;
+      }
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+                snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML = "🚀已持续航行&nbsp"+dnum+"&nbsp天";  
+      document.getElementById("times").innerHTML = hnum + "&nbsp时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+  }
+  setInterval("createtime()",250);
+  </script>
+</div>
+
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/scrollAnimation.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-1" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>

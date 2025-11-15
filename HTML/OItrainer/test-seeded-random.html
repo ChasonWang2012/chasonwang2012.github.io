@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChasonWang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="种子随机数测试        body {       font-family: &#39;Microsoft YaHei&#39;, sans-serif;       max-width: 1200px;       margin: 20px auto;       padding: 20px;       background: #f5f5f5;     }     .test-sec">
+<meta property="og:type" content="website">
+<meta property="og:title" content="page.title">
+<meta property="og:url" content="http://chasonwang2012.github.io/HTML/OItrainer/test-seeded-random.html">
+<meta property="og:site_name" content="ChasonWang&#39;s blogs">
+<meta property="og:description" content="种子随机数测试        body {       font-family: &#39;Microsoft YaHei&#39;, sans-serif;       max-width: 1200px;       margin: 20px auto;       padding: 20px;       background: #f5f5f5;     }     .test-sec">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-14T13:52:37.932Z">
+<meta property="article:modified_time" content="2025-11-14T13:52:37.932Z">
+<meta property="article:author" content="ChasonWang">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>page.title - ChasonWang&#39;s blogs</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/macpanel.css">
+<link rel="stylesheet" href="/css/selection.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chasonwang2012.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title">ChasonWang&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>文章</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/" target="_self">
+                    <i class="iconfont icon-archive-fill"></i>
+                    <span>归档</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/" target="_self">
+                    <i class="iconfont icon-category-fill"></i>
+                    <span>分类</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    <i class="iconfont icon-tags-fill"></i>
+                    <span>标签</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="inconfont icon-steam-fill"></i>
+                <span>好玩的东西(游戏)</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/%E4%BA%BA%E6%9C%BA%E9%AA%8C%E8%AF%81.html" target="_self">
+                    <i class="iconfont icon-人机验证-fill"></i>
+                    <span>人机验证</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/404game.html" target="_self">
+                    
+                    <span>404game</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/2048.html" target="_self">
+                    
+                    <span>2048</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98.html" target="_self">
+                    
+                    <span>坦克大战</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/HTML/OItrainer/index.html" target="_self">
+                    
+                    <span>OI 教练模拟器 转载</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="page.title"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>种子随机数测试</title>
+  <style>
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .test-section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    h2 {
+      color: #3498db;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .success {
+      color: #27ae60;
+      font-weight: bold;
+    }
+    .fail {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+    .result {
+      background: #ecf0f1;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+    input {
+      padding: 8px;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎲 种子随机数一致性测试</h1>
+  
+  <div class="test-section">
+    <h2>测试说明</h2>
+    <p>此页面用于验证种子随机数生成器 (SeededRandom) 是否能产生一致的随机数序列。</p>
+    <p><strong>测试原理：</strong>使用相同的种子初始化两次，应该得到完全相同的随机数序列。</p>
+  </div>
+
+  <div class="test-section">
+    <h2>1. 基础一致性测试</h2>
+    <p>使用固定种子 12345，生成两组随机数并对比</p>
+    <button onclick="testBasicConsistency()">运行测试</button>
+    <div id="test1-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>2. 自定义种子测试</h2>
+    <p>输入任意种子值，验证是否能产生一致的随机数</p>
+    <input type="number" id="custom-seed" placeholder="输入种子值" value="20251016">
+    <input type="number" id="random-count" placeholder="生成数量" value="10">
+    <button onclick="testCustomSeed()">运行测试</button>
+    <div id="test2-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>3. 今日挑战种子测试</h2>
+    <p>测试今日挑战功能生成的种子</p>
+    <button onclick="testDailyChallengeConsistency()">运行测试</button>
+    <div id="test3-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>4. 游戏逻辑模拟测试</h2>
+    <p>模拟实际游戏场景：学生名字生成、天赋分配等</p>
+    <button onclick="testGameLogic()">运行测试</button>
+    <div id="test4-result"></div>
+  </div>
+
+  <script src="game.js"></script>
+<script src="render.js"></script>
+<script src="debug.js"></script>
+  <script>
+    // 测试1：基础一致性
+    function testBasicConsistency() {
+      const seed = 12345;
+      const count = 10;
+      
+      // 第一次生成
+      setRandomSeed(seed);
+      const sequence1 = [];
+      for (let i = 0; i < count; i++) {
+        sequence1.push(getRandom());
+      }
+      
+      // 第二次生成
+      setRandomSeed(seed);
+      const sequence2 = [];
+      for (let i = 0; i < count; i++) {
+        sequence2.push(getRandom());
+      }
+      
+      // 对比结果
+      let isConsistent = true;
+      for (let i = 0; i < count; i++) {
+        if (sequence1[i] !== sequence2[i]) {
+          isConsistent = false;
+          break;
+        }
+      }
+      
+      const resultDiv = document.getElementById('test1-result');
+      resultDiv.innerHTML = `
+        <div class="result">
+          <strong>序列1：</strong><br>${sequence1.map(n => n.toFixed(6)).join(', ')}<br><br>
+          <strong>序列2：</strong><br>${sequence2.map(n => n.toFixed(6)).join(', ')}<br><br>
+          <strong>结果：</strong><span class="${isConsistent ? 'success' : 'fail'}">
+            ${isConsistent ? '✓ 通过 - 两次生成的序列完全一致！' : '✗ 失败 - 序列不一致！'}
+          </span>
+        </div>
+      `;
+    }
+
+    // 测试2：自定义种子
+    function testCustomSeed() {
+      const seed = parseInt(document.getElementById('custom-seed').value);
+      const count = parseInt(document.getElementById('random-count').value);
+      
+      if (isNaN(seed) || isNaN(count)) {
+        alert('请输入有效的数字！');
+        return;
+      }
+      
+      // 第一次生成
+      setRandomSeed(seed);
+      const sequence1 = [];
+      for (let i = 0; i < count; i++) {
+        sequence1.push(getRandom());
+      }
+      
+      // 第二次生成
+      setRandomSeed(seed);
+      const sequence2 = [];
+      for (let i = 0; i < count; i++) {
+        sequence2.push(getRandom());
+      }
+      
+      // 对比
+      let isConsistent = sequence1.every((val, idx) => val === sequence2[idx]);
+      
+      const resultDiv = document.getElementById('test2-result');
+      resultDiv.innerHTML = `
+        <div class="result">
+          <strong>种子：</strong>${seed}<br>
+          <strong>生成数量：</strong>${count}<br><br>
+          <strong>序列1：</strong><br>${sequence1.map(n => n.toFixed(6)).join(', ')}<br><br>
+          <strong>序列2：</strong><br>${sequence2.map(n => n.toFixed(6)).join(', ')}<br><br>
+          <strong>结果：</strong><span class="${isConsistent ? 'success' : 'fail'}">
+            ${isConsistent ? '✓ 通过' : '✗ 失败'}
+          </span>
+        </div>
+      `;
+    }
+
+    // 测试3：今日挑战种子
+    function testDailyChallengeConsistency() {
+      if (typeof getDailyChallengeParams !== 'function') {
+        document.getElementById('test3-result').innerHTML = `
+          <div class="result">
+            <span class="fail">✗ 错误：getDailyChallengeParams 函数未定义！</span>
+          </div>
+        `;
+        return;
+      }
+      
+      const params = getDailyChallengeParams();
+      const { seed, province, difficulty, date } = params;
+      
+      // 使用今日种子生成两组数据
+      setRandomSeed(seed);
+      const data1 = {
+        names: [generateName(), generateName(), generateName()],
+        randoms: [getRandom(), getRandom(), getRandom()]
+      };
+      
+      setRandomSeed(seed);
+      const data2 = {
+        names: [generateName(), generateName(), generateName()],
+        randoms: [getRandom(), getRandom(), getRandom()]
+      };
+      
+      const namesMatch = data1.names.every((name, idx) => name === data2.names[idx]);
+      const randomsMatch = data1.randoms.every((val, idx) => val === data2.randoms[idx]);
+      const allMatch = namesMatch && randomsMatch;
+      
+      const resultDiv = document.getElementById('test3-result');
+      resultDiv.innerHTML = `
+        <div class="result">
+          <strong>今日日期：</strong>${date}<br>
+          <strong>种子：</strong>${seed}<br>
+          <strong>省份：</strong>${province}<br>
+          <strong>难度：</strong>${difficulty}<br><br>
+          
+          <strong>第一次生成：</strong><br>
+          学生名字：${data1.names.join(', ')}<br>
+          随机数：${data1.randoms.map(n => n.toFixed(6)).join(', ')}<br><br>
+          
+          <strong>第二次生成：</strong><br>
+          学生名字：${data2.names.join(', ')}<br>
+          随机数：${data2.randoms.map(n => n.toFixed(6)).join(', ')}<br><br>
+          
+          <strong>结果：</strong><span class="${allMatch ? 'success' : 'fail'}">
+            ${allMatch ? '✓ 通过 - 今日挑战种子工作正常！' : '✗ 失败'}
+          </span><br>
+          名字匹配：${namesMatch ? '✓' : '✗'}<br>
+          随机数匹配：${randomsMatch ? '✓' : '✗'}
+        </div>
+      `;
+    }
+
+    // 测试4：游戏逻辑模拟
+    function testGameLogic() {
+      const seed = 99999;
+      
+      // 模拟游戏初始化流程（两次）
+      function simulateGameInit(seedValue) {
+        setRandomSeed(seedValue);
+        
+        return {
+          students: [
+            { name: generateName(), thinking: uniformInt(50, 80), coding: uniformInt(50, 80) },
+            { name: generateName(), thinking: uniformInt(50, 80), coding: uniformInt(50, 80) },
+            { name: generateName(), thinking: uniformInt(50, 80), coding: uniformInt(50, 80) }
+          ],
+          weather: {
+            temp: normal(20, 5),
+            precipitation: getRandom() < 0.3 ? '雨' : '晴'
+          },
+          eventChance: getRandom()
+        };
+      }
+      
+      const game1 = simulateGameInit(seed);
+      const game2 = simulateGameInit(seed);
+      
+      // 对比
+      const studentsMatch = game1.students.every((s, idx) => 
+        s.name === game2.students[idx].name &&
+        s.thinking === game2.students[idx].thinking &&
+        s.coding === game2.students[idx].coding
+      );
+      
+      const weatherMatch = 
+        game1.weather.temp === game2.weather.temp &&
+        game1.weather.precipitation === game2.weather.precipitation;
+      
+      const eventMatch = game1.eventChance === game2.eventChance;
+      
+      const allMatch = studentsMatch && weatherMatch && eventMatch;
+      
+      const resultDiv = document.getElementById('test4-result');
+      resultDiv.innerHTML = `
+        <div class="result">
+          <strong>测试种子：</strong>${seed}<br><br>
+          
+          <strong>第一次模拟：</strong><br>
+          学生：${game1.students.map(s => `${s.name}(思维${s.thinking}/代码${s.coding})`).join(', ')}<br>
+          天气：${game1.weather.precipitation} ${game1.weather.temp.toFixed(1)}°C<br>
+          事件概率：${game1.eventChance.toFixed(6)}<br><br>
+          
+          <strong>第二次模拟：</strong><br>
+          学生：${game2.students.map(s => `${s.name}(思维${s.thinking}/代码${s.coding})`).join(', ')}<br>
+          天气：${game2.weather.precipitation} ${game2.weather.temp.toFixed(1)}°C<br>
+          事件概率：${game2.eventChance.toFixed(6)}<br><br>
+          
+          <strong>结果：</strong><span class="${allMatch ? 'success' : 'fail'}">
+            ${allMatch ? '✓ 通过 - 游戏逻辑完全可复现！' : '✗ 失败'}
+          </span><br>
+          学生匹配：${studentsMatch ? '✓' : '✗'}<br>
+          天气匹配：${weatherMatch ? '✓' : '✗'}<br>
+          事件匹配：${eventMatch ? '✓' : '✗'}
+        </div>
+      `;
+    }
+  </script>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  <div>
+  <span id="timeDate">正在载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script>
+  var now = new Date();
+  function createtime(){
+      var grt= new Date("08/17/2020 00:00:00");
+      now.setTime(now.getTime()+250);
+      days = (now - grt ) / 1000 / 60 / 60 / 24;
+      dnum = Math.floor(days);
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+      hnum = Math.floor(hours);
+      if(String(hnum).length ==1 ){
+          hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+                mnum = "0" + mnum;
+      }
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+                snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML = "🚀已持续航行&nbsp"+dnum+"&nbsp天";  
+      document.getElementById("times").innerHTML = hnum + "&nbsp时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+  }
+  setInterval("createtime()",250);
+  </script>
+</div>
+
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/scrollAnimation.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-1" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
