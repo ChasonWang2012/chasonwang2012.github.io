@@ -435,7 +435,7 @@ hexo d
 <p>这时你会发现，同步上去点开后，会保留博客的CSS和JS，对于一些想在这放html<del>游戏</del>的人很不友好，那要怎么弄呢？打开_config.yml，将_config.yml中的skip_render加入你的专用html页面的相对路径（如<code>- ./HTML/xxx.html</code>，注意，前面要加<code>- </code>，相对路径为相对于sourced的路径。</p>
 <h1 id="自定义字体"><a href="#自定义字体" class="headerlink" title="自定义字体"></a>自定义字体</h1><p>  有些人不喜欢fluid的默认字体，所以就出现了自定义字体。首先，准备好woff字体文件，如果是ttf，可以到<a target="_blank" rel="noopener" href="https://transfonter.org/">这个</a>网站转换。然后，在source目录下建立文件夹fonts，里面建立文件custom.ccs（将stylesheet.css的内容复制进去），并将字体文件（woff文件）粘贴进到这个文件夹。接着，打开_config.fluid.yml，找到custom_css:，添加&#x2F;css&#x2F;custom.css。最后，打开目录hexo\node_modules\hexo-theme-fluid\source\css\ _variables，将font里的<code>$font-family = theme-config(&quot;font.font_family&quot;, &quot;var(--font-family-sans-serif)&quot;)</code>添上<code>Noto Serif SC</code>，即改成&#96;$font-family &#x3D; theme-config(“font.font_family”,”Noto Serif SC”, “var(–font-family-sans-serif)”)~。</p>
 <h1 id="广告"><a href="#广告" class="headerlink" title="广告"></a>广告</h1><p>我的<a href="https://chasonwang2012.github.io/">博客</a>，欢迎互加友链。</p>
-
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
                 
               </div>
             
