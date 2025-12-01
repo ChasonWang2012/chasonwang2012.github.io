@@ -1,0 +1,36 @@
+#daily-poem {
+  padding: 15px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.poem-content {
+  line-height: 1.6;
+  text-align: center;
+  margin: 15px 0;
+}
+
+#poem-author {
+  text-align: right;
+  font-style: italic;
+  color: #666;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.poem-refresh-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.poem-refresh-btn:hover {
+  opacity: 0.8;
+}
