@@ -19,21 +19,17 @@
   <meta name="author" content="ChasonWang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="历史上的今天                 加载中...                                          每日诗词                                        加载中...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="历史上的今天 &amp; 每日诗词">
-<meta property="og:url" content="http://chasonwang2012.github.io/everyday/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="归档">
+<meta property="og:url" content="http://chasonwang2012.github.io/archives/page/3/index.html">
 <meta property="og:site_name" content="ChasonWang&#39;s blogs">
-<meta property="og:description" content="历史上的今天                 加载中...                                          每日诗词                                        加载中...">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-20T10:28:21.929Z">
 <meta property="article:author" content="ChasonWang">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>历史上的今天 &amp; 每日诗词 - ChasonWang&#39;s blogs</title>
+  <title>归档 - ChasonWang&#39;s blogs</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -352,7 +348,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="历史上的今天 &amp; 每日诗词"></span>
+            <span id="subtitle" data-typed-text="归档"></span>
           
         </div>
 
@@ -379,452 +375,29 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<article class="page-content">
-  <div class="dual-container">
-  <!-- 历史上的今天区域 -->
-  <div class="section history-section">
-    <h2 class="section-title">
-      <i class="fas fa-calendar-alt"></i> 
-      <span id="current-date"></span> 历史上的今天
-    </h2>
-    <div id="history-container">
-      <div class="loading" id="history-loading">加载中...</div>
-      <div class="error" id="history-error" style="display:none;"></div>
-      <div class="history-list" id="history-list"></div>
-    </div>
-  </div>
-
-  <!-- 每日诗词区域 -->
-  <div class="section poetry-section">
-    <h2 class="section-title">
-      <i class="fas fa-feather-alt"></i> 每日诗词
-      <button class="refresh-btn" id="refresh-poetry" title="换一句">
-        <i class="fas fa-sync-alt"></i>
-      </button>
-    </h2>
-    <div id="poetry-container">
-      <div class="loading" id="poetry-loading">加载中...</div>
-      <div class="error" id="poetry-error" style="display:none;"></div>
-      <div class="poetry-card" id="poetry-card" style="display:none;">
-        <div class="poetry-content">
-          <div class="poetry-lines" id="poetry-lines"></div>
-          <div class="poetry-info">
-            <span class="poetry-title" id="poetry-title"></span>
-            <span class="poetry-author" id="poetry-author"></span>
-            <span class="poetry-dynasty" id="poetry-dynasty"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="list-group">
+  <p class="h4">共计 21 篇文章</p>
+  <hr>
+  
+  
+    
+      
+      <p class="h5">2025</p>
+    
+    <a href="/2025/07/17/666/" class="list-group-item list-group-item-action">
+      <time>07-17</time>
+      <div class="list-group-item-title">666</div>
+    </a>
+  
 </div>
 
-<style>
-.dual-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
 
-@media (max-width: 768px) {
-  .dual-container {
-    grid-template-columns: 1fr;
-  }
-}
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/archives/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/#board">2</a><span class="page-number current">3</span>
+    </span>
+  </nav>
 
-.section {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 25px;
-  transition: transform 0.3s;
-}
-
-.section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-.section-title {
-  display: flex;
-  align-items: center;
-  margin-top: 0;
-  margin-bottom: 25px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #f0f0f0;
-  color: #2c3e50;
-  font-size: 1.5em;
-}
-
-.section-title i {
-  margin-right: 10px;
-  color: #1890ff;
-}
-
-.refresh-btn {
-  margin-left: auto;
-  background: none;
-  border: none;
-  color: #1890ff;
-  cursor: pointer;
-  font-size: 1em;
-  padding: 8px 12px;
-  border-radius: 20px;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.refresh-btn:hover {
-  background: #e6f7ff;
-  transform: rotate(180deg);
-}
-
-.history-list {
-  max-height: 500px;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
-.history-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.history-list::-webkit-scrollbar-thumb {
-  background: #d9d9d9;
-  border-radius: 3px;
-}
-
-.history-item {
-  padding: 15px 20px;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
-  border-left: 4px solid #1890ff;
-  border-radius: 8px;
-  transition: all 0.3s;
-  list-style: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.history-item:hover {
-  transform: translateX(8px);
-  border-left-color: #ff6b6b;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.history-year {
-  font-weight: bold;
-  color: #1890ff;
-  margin-right: 15px;
-  font-size: 1.1em;
-}
-
-.history-event {
-  color: #34495e;
-  line-height: 1.6;
-}
-
-/* 诗词卡片样式 */
-.poetry-card {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius: 12px;
-  padding: 25px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.poetry-card::before {
-  content: "❝";
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 60px;
-  color: rgba(24, 144, 255, 0.2);
-  font-family: serif;
-}
-
-.poetry-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.poetry-lines {
-  font-size: 1.2em;
-  line-height: 2;
-  margin: 30px 0;
-  text-align: center;
-  color: #2c3e50;
-  font-family: "KaiTi", "楷体", "STKaiti", serif;
-}
-
-.poetry-lines p {
-  margin: 8px 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-}
-
-.poetry-info {
-  text-align: right;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px dashed #cbd5e0;
-  color: #64748b;
-}
-
-.poetry-title {
-  font-weight: bold;
-  color: #2c3e50;
-  margin-right: 10px;
-}
-
-.poetry-author {
-  color: #1890ff;
-  margin-right: 8px;
-}
-
-.poetry-dynasty {
-  color: #94a3b8;
-  font-style: italic;
-}
-
-.loading, .error {
-  text-align: center;
-  padding: 60px 20px;
-  border-radius: 8px;
-}
-
-.loading {
-  color: #94a3b8;
-  position: relative;
-}
-
-.loading::after {
-  content: "...";
-  animation: dots 1.5s steps(4, end) infinite;
-}
-
-@keyframes dots {
-  0%, 20% { content: "."; }
-  40% { content: ".."; }
-  60%, 100% { content: "..."; }
-}
-
-.error {
-  color: #dc2626;
-  background: #fee2e2;
-  border: 1px solid #fecaca;
-}
-
-/* 加载动画 */
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 4px;
-  height: 20px;
-  margin: 10px 0;
-}
-
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-</style>
-
-<!-- 添加 Font Awesome 图标库 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // 显示当前日期
-  const today = new Date();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-  document.getElementById('current-date').textContent = `${month}月${day}日`;
-  
-  // 加载历史上的今天
-  loadHistoryToday();
-  
-  // 加载随机诗词
-  loadRandomPoetry();
-  
-  // 绑定刷新按钮事件
-  document.getElementById('refresh-poetry').addEventListener('click', function() {
-    loadRandomPoetry();
-  });
-});
-
-// 加载历史上的今天
-function loadHistoryToday() {
-  const historyLoading = document.getElementById('history-loading');
-  const historyError = document.getElementById('history-error');
-  const historyList = document.getElementById('history-list');
-  
-  fetch('https://v2.xxapi.cn/api/history')
-    .then(response => response.json())
-    .then(data => {
-      historyLoading.style.display = 'none';
-      
-      if (data.code === 200 && data.data && data.data.length > 0) {
-        const ul = document.createElement('ul');
-        ul.style.padding = '0';
-        ul.style.margin = '0';
-        
-        data.data.forEach(item => {
-          const li = document.createElement('li');
-          li.className = 'history-item';
-          
-          // 提取年份和事件
-          const yearMatch = item.match(/^(\d{4}年)/);
-          if (yearMatch) {
-            const year = yearMatch[1];
-            const event = item.substring(year.length);
-            li.innerHTML = `<span class="history-year">${year}</span><span class="history-event">${event}</span>`;
-          } else {
-            li.textContent = item;
-          }
-          
-          ul.appendChild(li);
-        });
-        
-        historyList.innerHTML = '';
-        historyList.appendChild(ul);
-      } else {
-        historyError.style.display = 'block';
-        historyError.textContent = '暂无历史上的今天数据';
-      }
-    })
-    .catch(error => {
-      historyLoading.style.display = 'none';
-      historyError.style.display = 'block';
-      historyError.textContent = '加载失败，请刷新页面重试';
-      console.error('History API Error:', error);
-    });
-}
-
-// 加载随机诗词
-function loadRandomPoetry() {
-  const poetryLoading = document.getElementById('poetry-loading');
-  const poetryError = document.getElementById('poetry-error');
-  const poetryCard = document.getElementById('poetry-card');
-  const poetryLines = document.getElementById('poetry-lines');
-  const poetryTitle = document.getElementById('poetry-title');
-  const poetryAuthor = document.getElementById('poetry-author');
-  const poetryDynasty = document.getElementById('poetry-dynasty');
-  
-  // 显示加载状态
-  poetryLoading.style.display = 'block';
-  poetryError.style.display = 'none';
-  poetryCard.style.display = 'none';
-  
-  // 随机选择 API 类型（简单版或专业版）
-  const apiType = Math.random() > 0.5 ? 'simple' : 'pro';
-  const url = `https://shici.amlg.top/api/text/${apiType}/all`;
-  
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      poetryLoading.style.display = 'none';
-      
-      // 根据 API 类型处理返回数据
-      if (data) {
-        let lines = [];
-        let title = '';
-        let author = '';
-        let dynasty = '';
-        
-        if (apiType === 'simple') {
-          // 简单版 API 返回格式
-          lines = data.content || [];
-          title = data.title || '无题';
-          author = data.author || '佚名';
-          dynasty = data.dynasty || '未知';
-        } else {
-          // 专业版 API 返回格式
-          lines = data.content || data.paragraphs || [];
-          title = data.title || data.name || '无题';
-          author = data.author || '佚名';
-          dynasty = data.dynasty || '未知';
-        }
-        
-        // 显示诗词内容
-        poetryLines.innerHTML = '';
-        if (Array.isArray(lines)) {
-          lines.forEach(line => {
-            if (line && line.trim()) {
-              const p = document.createElement('p');
-              p.textContent = line;
-              poetryLines.appendChild(p);
-            }
-          });
-        } else if (typeof lines === 'string') {
-          const p = document.createElement('p');
-          p.textContent = lines;
-          poetryLines.appendChild(p);
-        }
-        
-        poetryTitle.textContent = title;
-        poetryAuthor.textContent = author;
-        poetryDynasty.textContent = dynasty ? `[${dynasty}]` : '';
-        
-        poetryCard.style.display = 'block';
-      } else {
-        showPoetryError('暂无诗词数据');
-      }
-    })
-    .catch(error => {
-      poetryLoading.style.display = 'none';
-      showPoetryError('加载诗词失败，请点击刷新重试');
-      console.error('Poetry API Error:', error);
-    });
-}
-
-// 显示诗词错误
-function showPoetryError(message) {
-  const poetryError = document.getElementById('poetry-error');
-  poetryError.style.display = 'block';
-  poetryError.textContent = message;
-}
-
-// 添加诗词缓存功能（可选）
-function cachePoetry(data) {
-  const cache = {
-    data: data,
-    timestamp: Date.now()
-  };
-  localStorage.setItem('last_poetry', JSON.stringify(cache));
-}
-
-// 从缓存加载（如果不超过1小时）
-function loadFromCache() {
-  const cached = localStorage.getItem('last_poetry');
-  if (cached) {
-    const cache = JSON.parse(cached);
-    const oneHour = 60 * 60 * 1000;
-    if (Date.now() - cache.timestamp < oneHour) {
-      return cache.data;
-    }
-  }
-  return null;
-}
-</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-
-  
-
-</article>
 
 
 

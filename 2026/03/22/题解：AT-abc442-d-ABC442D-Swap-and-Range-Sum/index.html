@@ -19,25 +19,32 @@
   <meta name="author" content="ChasonWang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="历史上的今天                 加载中...                                          每日诗词                                        加载中...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="历史上的今天 &amp; 每日诗词">
-<meta property="og:url" content="http://chasonwang2012.github.io/everyday/index.html">
+    <meta name="description" content="题目传送门。 思路这一道题一看又有修改又有求和，普通的做法肯定过不了，这时我们就要请出可以修改和求和的工具，线段树和树状数组。由于作者比较懒，所以就只写出了树状数组的写法。 AC CODE123456789101112131415161718192021222324252627282930313233343536373839#include&lt;bits&#x2F;stdc++.h&gt;using na">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题解：AT_abc442_d [ABC442D] Swap and Range Sum">
+<meta property="og:url" content="http://chasonwang2012.github.io/2026/03/22/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc442-d-ABC442D-Swap-and-Range-Sum/index.html">
 <meta property="og:site_name" content="ChasonWang&#39;s blogs">
-<meta property="og:description" content="历史上的今天                 加载中...                                          每日诗词                                        加载中...">
+<meta property="og:description" content="题目传送门。 思路这一道题一看又有修改又有求和，普通的做法肯定过不了，这时我们就要请出可以修改和求和的工具，线段树和树状数组。由于作者比较懒，所以就只写出了树状数组的写法。 AC CODE123456789101112131415161718192021222324252627282930313233343536373839#include&lt;bits&#x2F;stdc++.h&gt;using na">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-20T10:28:21.929Z">
+<meta property="article:published_time" content="2026-03-22T04:37:31.000Z">
+<meta property="article:modified_time" content="2026-03-22T04:39:48.623Z">
 <meta property="article:author" content="ChasonWang">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>历史上的今天 &amp; 每日诗词 - ChasonWang&#39;s blogs</title>
+  <title>题解：AT_abc442_d [ABC442D] Swap and Range Sum - ChasonWang&#39;s blogs</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -98,7 +105,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -352,9 +359,49 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="历史上的今天 &amp; 每日诗词"></span>
+            <span id="subtitle" data-typed-text="题解：AT_abc442_d [ABC442D] Swap and Range Sum"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-22 12:37" pubdate>
+          2026年3月22日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          263 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -370,469 +417,237 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<article class="page-content">
-  <div class="dual-container">
-  <!-- 历史上的今天区域 -->
-  <div class="section history-section">
-    <h2 class="section-title">
-      <i class="fas fa-calendar-alt"></i> 
-      <span id="current-date"></span> 历史上的今天
-    </h2>
-    <div id="history-container">
-      <div class="loading" id="history-loading">加载中...</div>
-      <div class="error" id="history-error" style="display:none;"></div>
-      <div class="history-list" id="history-list"></div>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
     </div>
-  </div>
 
-  <!-- 每日诗词区域 -->
-  <div class="section poetry-section">
-    <h2 class="section-title">
-      <i class="fas fa-feather-alt"></i> 每日诗词
-      <button class="refresh-btn" id="refresh-poetry" title="换一句">
-        <i class="fas fa-sync-alt"></i>
-      </button>
-    </h2>
-    <div id="poetry-container">
-      <div class="loading" id="poetry-loading">加载中...</div>
-      <div class="error" id="poetry-error" style="display:none;"></div>
-      <div class="poetry-card" id="poetry-card" style="display:none;">
-        <div class="poetry-content">
-          <div class="poetry-lines" id="poetry-lines"></div>
-          <div class="poetry-info">
-            <span class="poetry-title" id="poetry-title"></span>
-            <span class="poetry-author" id="poetry-author"></span>
-            <span class="poetry-dynasty" id="poetry-dynasty"></span>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">题解：AT_abc442_d [ABC442D] Swap and Range Sum</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc442/tasks/abc442_d">题目传送门。</a></p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这一道题一看又有修改又有求和，普通的做法肯定过不了，这时我们就要请出可以修改和求和的工具，线段树和树状数组。由于作者<del>比较懒</del>，所以就只写出了树状数组的写法。</p>
+<h1 id="AC-CODE"><a href="#AC-CODE" class="headerlink" title="AC CODE"></a>AC CODE</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> n,m;<br><span class="hljs-type">int</span> a[<span class="hljs-number">200005</span>],c[<span class="hljs-number">200005</span>];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<span class="hljs-keyword">return</span> x&amp;(-x);&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span>&#123;<span class="hljs-comment">//修改函数。</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=x;i&lt;=n;i+=<span class="hljs-built_in">lowbit</span>(i))&#123;<br>        c[i]+=y;<br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<span class="hljs-comment">//求和函数。</span><br>    <span class="hljs-type">int</span> cnt=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=x;i&gt;=<span class="hljs-number">1</span>;i-=<span class="hljs-built_in">lowbit</span>(i))cnt+=c[i];<br>    <span class="hljs-keyword">return</span> cnt;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;m;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin&gt;&gt;a[i];<br>        <span class="hljs-built_in">add</span>(i,a[i]);<span class="hljs-comment">//将每个a_i进行求和。</span><br>    &#125;<br>    <span class="hljs-keyword">while</span>(m--)&#123;<br>        <span class="hljs-type">int</span> op;<br>        cin&gt;&gt;op;<br>        <span class="hljs-keyword">if</span>(op==<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-type">int</span> x;<br>            cin&gt;&gt;x;<br>            <span class="hljs-type">int</span> t=<span class="hljs-built_in">sum</span>(x<span class="hljs-number">+1</span>)<span class="hljs-number">-2</span>*<span class="hljs-built_in">sum</span>(x)+<span class="hljs-built_in">sum</span>(x<span class="hljs-number">-1</span>);<span class="hljs-comment">//求出两数的差。</span><br>            <span class="hljs-built_in">add</span>(x,t);<br>            <span class="hljs-built_in">add</span>(x<span class="hljs-number">+1</span>,-t);<span class="hljs-comment">//进行修改。</span><br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-type">int</span> l,r;<br>            cin&gt;&gt;l&gt;&gt;r;<br>            cout&lt;&lt;<span class="hljs-built_in">sum</span>(r)-<span class="hljs-built_in">sum</span>(l<span class="hljs-number">-1</span>)&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<span class="hljs-comment">//求和查询</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><del>管理大大求过。</del></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>题解：AT_abc442_d [ABC442D] Swap and Range Sum</div>
+      <div>http://chasonwang2012.github.io/2026/03/22/题解：AT-abc442-d-ABC442D-Swap-and-Range-Sum/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChasonWang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/22/%E9%A2%98%E8%A7%A3%EF%BC%9AAT-abc442-c-ABC442C-Peer-Review/" title="题解：AT_abc442_c [ABC442C] Peer Review">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">题解：AT_abc442_c [ABC442C] Peer Review</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/12/%E4%B8%80%E4%B8%AA%E7%A5%9E%E5%A5%87%E7%9A%84%E7%8C%9C%E6%83%B3%E6%98%AF%E5%A6%82%E4%BD%95%E8%A2%AB%E9%AA%8C%E8%AF%81%E7%9A%84/" title="一个神奇的猜想是如何被验证的">
+                        <span class="hidden-mobile">一个神奇的猜想是如何被验证的</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"ChasonWang2012/pinglun","repo-id":"R_kgDOPQnIqg","category":"General","category-id":"DIC_kwDOPQnIqs4CtREF","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
       </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
     </div>
   </div>
 </div>
 
-<style>
-.dual-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
 
-@media (max-width: 768px) {
-  .dual-container {
-    grid-template-columns: 1fr;
-  }
-}
 
-.section {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 25px;
-  transition: transform 0.3s;
-}
 
-.section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-.section-title {
-  display: flex;
-  align-items: center;
-  margin-top: 0;
-  margin-bottom: 25px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #f0f0f0;
-  color: #2c3e50;
-  font-size: 1.5em;
-}
-
-.section-title i {
-  margin-right: 10px;
-  color: #1890ff;
-}
-
-.refresh-btn {
-  margin-left: auto;
-  background: none;
-  border: none;
-  color: #1890ff;
-  cursor: pointer;
-  font-size: 1em;
-  padding: 8px 12px;
-  border-radius: 20px;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.refresh-btn:hover {
-  background: #e6f7ff;
-  transform: rotate(180deg);
-}
-
-.history-list {
-  max-height: 500px;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
-.history-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.history-list::-webkit-scrollbar-thumb {
-  background: #d9d9d9;
-  border-radius: 3px;
-}
-
-.history-item {
-  padding: 15px 20px;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
-  border-left: 4px solid #1890ff;
-  border-radius: 8px;
-  transition: all 0.3s;
-  list-style: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.history-item:hover {
-  transform: translateX(8px);
-  border-left-color: #ff6b6b;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.history-year {
-  font-weight: bold;
-  color: #1890ff;
-  margin-right: 15px;
-  font-size: 1.1em;
-}
-
-.history-event {
-  color: #34495e;
-  line-height: 1.6;
-}
-
-/* 诗词卡片样式 */
-.poetry-card {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius: 12px;
-  padding: 25px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.poetry-card::before {
-  content: "❝";
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 60px;
-  color: rgba(24, 144, 255, 0.2);
-  font-family: serif;
-}
-
-.poetry-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.poetry-lines {
-  font-size: 1.2em;
-  line-height: 2;
-  margin: 30px 0;
-  text-align: center;
-  color: #2c3e50;
-  font-family: "KaiTi", "楷体", "STKaiti", serif;
-}
-
-.poetry-lines p {
-  margin: 8px 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-}
-
-.poetry-info {
-  text-align: right;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px dashed #cbd5e0;
-  color: #64748b;
-}
-
-.poetry-title {
-  font-weight: bold;
-  color: #2c3e50;
-  margin-right: 10px;
-}
-
-.poetry-author {
-  color: #1890ff;
-  margin-right: 8px;
-}
-
-.poetry-dynasty {
-  color: #94a3b8;
-  font-style: italic;
-}
-
-.loading, .error {
-  text-align: center;
-  padding: 60px 20px;
-  border-radius: 8px;
-}
-
-.loading {
-  color: #94a3b8;
-  position: relative;
-}
-
-.loading::after {
-  content: "...";
-  animation: dots 1.5s steps(4, end) infinite;
-}
-
-@keyframes dots {
-  0%, 20% { content: "."; }
-  40% { content: ".."; }
-  60%, 100% { content: "..."; }
-}
-
-.error {
-  color: #dc2626;
-  background: #fee2e2;
-  border: 1px solid #fecaca;
-}
-
-/* 加载动画 */
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 4px;
-  height: 20px;
-  margin: 10px 0;
-}
-
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-</style>
-
-<!-- 添加 Font Awesome 图标库 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // 显示当前日期
-  const today = new Date();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-  document.getElementById('current-date').textContent = `${month}月${day}日`;
-  
-  // 加载历史上的今天
-  loadHistoryToday();
-  
-  // 加载随机诗词
-  loadRandomPoetry();
-  
-  // 绑定刷新按钮事件
-  document.getElementById('refresh-poetry').addEventListener('click', function() {
-    loadRandomPoetry();
-  });
-});
-
-// 加载历史上的今天
-function loadHistoryToday() {
-  const historyLoading = document.getElementById('history-loading');
-  const historyError = document.getElementById('history-error');
-  const historyList = document.getElementById('history-list');
-  
-  fetch('https://v2.xxapi.cn/api/history')
-    .then(response => response.json())
-    .then(data => {
-      historyLoading.style.display = 'none';
-      
-      if (data.code === 200 && data.data && data.data.length > 0) {
-        const ul = document.createElement('ul');
-        ul.style.padding = '0';
-        ul.style.margin = '0';
-        
-        data.data.forEach(item => {
-          const li = document.createElement('li');
-          li.className = 'history-item';
-          
-          // 提取年份和事件
-          const yearMatch = item.match(/^(\d{4}年)/);
-          if (yearMatch) {
-            const year = yearMatch[1];
-            const event = item.substring(year.length);
-            li.innerHTML = `<span class="history-year">${year}</span><span class="history-event">${event}</span>`;
-          } else {
-            li.textContent = item;
-          }
-          
-          ul.appendChild(li);
-        });
-        
-        historyList.innerHTML = '';
-        historyList.appendChild(ul);
-      } else {
-        historyError.style.display = 'block';
-        historyError.textContent = '暂无历史上的今天数据';
-      }
-    })
-    .catch(error => {
-      historyLoading.style.display = 'none';
-      historyError.style.display = 'block';
-      historyError.textContent = '加载失败，请刷新页面重试';
-      console.error('History API Error:', error);
-    });
-}
-
-// 加载随机诗词
-function loadRandomPoetry() {
-  const poetryLoading = document.getElementById('poetry-loading');
-  const poetryError = document.getElementById('poetry-error');
-  const poetryCard = document.getElementById('poetry-card');
-  const poetryLines = document.getElementById('poetry-lines');
-  const poetryTitle = document.getElementById('poetry-title');
-  const poetryAuthor = document.getElementById('poetry-author');
-  const poetryDynasty = document.getElementById('poetry-dynasty');
-  
-  // 显示加载状态
-  poetryLoading.style.display = 'block';
-  poetryError.style.display = 'none';
-  poetryCard.style.display = 'none';
-  
-  // 随机选择 API 类型（简单版或专业版）
-  const apiType = Math.random() > 0.5 ? 'simple' : 'pro';
-  const url = `https://shici.amlg.top/api/text/${apiType}/all`;
-  
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      poetryLoading.style.display = 'none';
-      
-      // 根据 API 类型处理返回数据
-      if (data) {
-        let lines = [];
-        let title = '';
-        let author = '';
-        let dynasty = '';
-        
-        if (apiType === 'simple') {
-          // 简单版 API 返回格式
-          lines = data.content || [];
-          title = data.title || '无题';
-          author = data.author || '佚名';
-          dynasty = data.dynasty || '未知';
-        } else {
-          // 专业版 API 返回格式
-          lines = data.content || data.paragraphs || [];
-          title = data.title || data.name || '无题';
-          author = data.author || '佚名';
-          dynasty = data.dynasty || '未知';
-        }
-        
-        // 显示诗词内容
-        poetryLines.innerHTML = '';
-        if (Array.isArray(lines)) {
-          lines.forEach(line => {
-            if (line && line.trim()) {
-              const p = document.createElement('p');
-              p.textContent = line;
-              poetryLines.appendChild(p);
-            }
-          });
-        } else if (typeof lines === 'string') {
-          const p = document.createElement('p');
-          p.textContent = lines;
-          poetryLines.appendChild(p);
-        }
-        
-        poetryTitle.textContent = title;
-        poetryAuthor.textContent = author;
-        poetryDynasty.textContent = dynasty ? `[${dynasty}]` : '';
-        
-        poetryCard.style.display = 'block';
-      } else {
-        showPoetryError('暂无诗词数据');
-      }
-    })
-    .catch(error => {
-      poetryLoading.style.display = 'none';
-      showPoetryError('加载诗词失败，请点击刷新重试');
-      console.error('Poetry API Error:', error);
-    });
-}
-
-// 显示诗词错误
-function showPoetryError(message) {
-  const poetryError = document.getElementById('poetry-error');
-  poetryError.style.display = 'block';
-  poetryError.textContent = message;
-}
-
-// 添加诗词缓存功能（可选）
-function cachePoetry(data) {
-  const cache = {
-    data: data,
-    timestamp: Date.now()
-  };
-  localStorage.setItem('last_poetry', JSON.stringify(cache));
-}
-
-// 从缓存加载（如果不超过1小时）
-function loadFromCache() {
-  const cached = localStorage.getItem('last_poetry');
-  if (cached) {
-    const cache = JSON.parse(cached);
-    const oneHour = 60 * 60 * 1000;
-    if (Date.now() - cache.timestamp < oneHour) {
-      return cache.data;
-    }
-  }
-  return null;
-}
-</script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
 
   
 
-</article>
+
+
+  
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -957,6 +772,99 @@ function loadFromCache() {
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
