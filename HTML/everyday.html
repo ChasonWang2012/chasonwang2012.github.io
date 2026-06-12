@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>今日热点 · 每日速览</title>
+  <!-- 引入现代字体与图标库 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f7fc;
+      font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      color: #1e293b;
+    }
+
+    /* 顶栏导航 */
+    .navbar {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo i {
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #334155;
+      transition: 0.2s;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #2563eb;
+    }
+
+    .dashboard {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    /* 每日一言 + 古诗竖向两列 */
+    .hero-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .quote-card {
+      flex: 1 1 280px;
+      background: linear-gradient(135deg, #ffffff 0%, #f9fbff 100%);
+      border-radius: 2.5rem;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.03), 0 8px 18px rgba(0, 20, 40, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quote-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: #5b6e8c;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .quote-text {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #0f172a;
+    }
+
+    .poem-card {
+      flex: 1 1 280px;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.02);
+      background: linear-gradient(105deg, #fffdf7 0%, #ffffff 100%);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .poem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .poem-title {
+      font-weight: 650;
+      font-size: 1.1rem;
+      color: #b45309;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .refresh-poem-btn {
+      background: none;
+      border: none;
+      color: #78716c;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s;
+      padding: 0.3rem;
+    }
+    .refresh-poem-btn:hover {
+      color: #b45309;
+      transform: rotate(30deg);
+    }
+
+    .poem-author {
+      font-size: 0.85rem;
+      color: #78716c;
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+
+    .poem-content {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #334155;
+      white-space: pre-line;
+      font-weight: 450;
+    }
+
+    .history-card {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 1.4rem 1.8rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.03);
+      border: 1px solid #edf2f9;
+    }
+
+    .history-title {
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .history-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      max-height: 90px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+
+    .history-item {
+      background: #f1f5f9;
+      padding: 0.2rem 0.9rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .platform-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.02);
+      border: 1px solid #e9eef3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .platform-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      border-bottom: 1px solid #f0f4fa;
+      padding-bottom: 0.6rem;
+    }
+
+    .news-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .news-item a {
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .news-score {
+      font-size: 0.7rem;
+      background: #f1f5f9;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+    }
+
+    .loading-placeholder {
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .dashboard {
+        padding: 1rem;
+      }
+      .quote-text {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶栏导航 -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <i class="fas fa-bolt"></i> 热点速览
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active"><i class="fas fa-home"></i> 首页</a>
+      <a href="chasonwang2012.github.io"><i class="fas fa-info-circle"></i> 关于</a>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <!-- 每日一言 + 古诗 竖向两列 -->
+    <div class="hero-row">
+      <div class="quote-card">
+        <div class="quote-label"><i class="fas fa-feather-alt"></i> 每日一言</div>
+        <div class="quote-text" id="quoteText">加载中...</div>
+        <div style="font-size:0.8rem; color:#64748b; margin-top:0.8rem;">—— 来自一言</div>
+      </div>
+
+      <div class="poem-card">
+        <div class="poem-header">
+          <div class="poem-title"><i class="fas fa-scroll"></i> 每日古诗</div>
+          <button class="refresh-poem-btn" id="refreshPoemBtn" title="换一首古诗"><i class="fas fa-sync-alt"></i></button>
+        </div>
+        <div id="poemDisplay">
+          <div class="poem-author" id="poemAuthor">加载中...</div>
+          <div class="poem-content" id="poemContent">⏳</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 历史上的今天 -->
+    <div class="history-card">
+      <div class="history-title"><i class="fas fa-history"></i> 历史上的今天</div>
+      <div class="history-list" id="historyList">加载中...</div>
+    </div>
+
+    <!-- 新闻板块 -->
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+
+  <script>
+    (function() {
+      const PLATFORMS = [
+        { name: '微博热搜', code: 'weibo', icon: 'fab fa-weibo' },
+        { name: '百度热搜', code: 'baidu', icon: 'fas fa-fire' },
+        { name: '知乎热榜', code: 'zhihu', icon: 'fab fa-zhihu' },
+        { name: '36氪', code: 'tskr', icon: 'fas fa-chart-line' },
+        { name: 'GitHub', code: 'github', icon: 'fab fa-github' },
+        { name: '掘金', code: 'juejin', icon: 'fas fa-code' },
+        { name: '少数派', code: 'sspai', icon: 'fas fa-mug-hot' },
+        { name: '抖音热点', code: 'douyin', icon: 'fab fa-tiktok' }
+      ];
+
+      const NEWS_API_BASE = 'https://orz.ai/api/v1/dailynews';
+      const quoteTextEl = document.getElementById('quoteText');
+      const poemAuthorEl = document.getElementById('poemAuthor');
+      const poemContentEl = document.getElementById('poemContent');
+      const historyListEl = document.getElementById('historyList');
+      const newsGridEl = document.getElementById('newsGrid');
+      const refreshPoemBtn = document.getElementById('refreshPoemBtn');
+
+      async function fetchData(url, errorMsg = '请求失败') {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return await response.json();
+        } catch (error) {
+          console.warn(errorMsg, error);
+          return null;
+        }
+      }
+
+      async function loadQuote() {
+        try {
+          const data = await fetchData('https://uapis.cn/api/v1/saying');
+          if (data && data.text) {
+            quoteTextEl.textContent = data.text;
+          } else {
+            quoteTextEl.textContent = '世界是自己的，与他人毫无关系。';
+          }
+        } catch (e) {
+          quoteTextEl.textContent = '凡是过往，皆为序章。';
+        }
+      }
+
+      async function loadPoem() {
+        try {
+          const data = await fetchData('https://shici.amlg.top/api/text/simple/all');
+          if (data && data.title && data.content) {
+            const author = data.author || '佚名';
+            const dynasty = data.dynasty || '';
+            poemAuthorEl.textContent = `${dynasty} · ${author}`;
+            let contentStr = Array.isArray(data.content) ? data.content.join('\n') : data.content;
+            poemContentEl.textContent = contentStr;
+          } else {
+            throw new Error('格式错误');
+          }
+        } catch (e) {
+          poemAuthorEl.textContent = '唐 · 李白';
+          poemContentEl.textContent = '床前明月光，疑是地上霜。\n举头望明月，低头思故乡。';
+        }
+      }
+
+      async function loadHistory() {
+        try {
+          const data = await fetchData('https://v2.xxapi.cn/api/history');
+          if (data && data.code === 200 && Array.isArray(data.data)) {
+            historyListEl.innerHTML = data.data.slice(0, 10).map(e => `<span class="history-item">${e}</span>`).join('');
+          } else {
+            historyListEl.innerHTML = '<span>暂无历史数据</span>';
+          }
+        } catch (e) {
+          historyListEl.innerHTML = '<span>📅 1999年3月12日 小提琴大师梅纽因逝世</span>';
+        }
+      }
+
+      function renderNewsSkeleton() {
+        newsGridEl.innerHTML = PLATFORMS.map(p => `
+          <div class="platform-card" id="card-${p.code}">
+            <div class="platform-header">
+              <span><i class="${p.icon}"></i> ${p.name}</span>
+              <button class="refresh-btn" data-platform="${p.code}" style="background:none;border:none;cursor:pointer;"><i class="fas fa-sync-alt"></i></button>
+            </div>
+            <ul class="news-list"><li class="loading-placeholder">加载中...</li></ul>
+          </div>
+        `).join('');
+        document.querySelectorAll('.refresh-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            loadPlatformNews(this.dataset.platform, true);
+          });
+        });
+      }
+
+      async function loadPlatformNews(platformCode, isRefresh = false) {
+        const card = document.getElementById(`card-${platformCode}`);
+        if (!card) return;
+        const listElement = card.querySelector('.news-list');
+        if (isRefresh) listElement.innerHTML = '<li class="loading-placeholder">刷新中...</li>';
+        try {
+          const result = await fetchData(`${NEWS_API_BASE}?platform=${platformCode}`);
+          if (result && result.status === '200' && Array.isArray(result.data) && result.data.length) {
+            listElement.innerHTML = result.data.slice(0, 6).map(item => {
+              const title = item.title || '无标题';
+              const url = item.url || '#';
+              const score = item.score ? Number(item.score).toLocaleString() : '';
+              return `<li class="news-item"><a href="${url}" target="_blank"><span>${escapeHtml(title)}</span>${score ? `<span class="news-score">🔥 ${score}</span>` : ''}</a></li>`;
+            }).join('');
+          } else {
+            listElement.innerHTML = '<li class="error-message">暂无热点</li>';
+          }
+        } catch (e) {
+          listElement.innerHTML = '<li class="error-message">获取失败</li>';
+        }
+      }
+
+      function escapeHtml(text) {
+        return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      function loadAllNews() {
+        PLATFORMS.forEach(p => loadPlatformNews(p.code));
+      }
+
+      // 绑定古诗刷新按钮
+      refreshPoemBtn.addEventListener('click', (e) => {
+        poemContentEl.textContent = '⏳';
+        poemAuthorEl.textContent = '加载中...';
+        loadPoem();
+      });
+
+      // 初始化
+      renderNewsSkeleton();
+      loadQuote();
+      loadPoem();
+      loadHistory();
+      loadAllNews();
+
+      setInterval(() => {
+        PLATFORMS.forEach(p => loadPlatformNews(p.code, false));
+      }, 600000);
+    })();
+  </script>
+</body>
+</html>
